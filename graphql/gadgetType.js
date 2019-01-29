@@ -2,7 +2,7 @@ const graphql = require('graphql');
 
 const { GraphQLObjectType, GraphQLString } = graphql;
 
-const PaintingType = new GraphQLObjectType({
+const GadgetType = new GraphQLObjectType({
   name: 'Gadget',
   fields: () => ({
     id: { type: GraphQLString },
@@ -13,4 +13,4 @@ const PaintingType = new GraphQLObjectType({
   })
 });
 
-module.exports = PaintingType;
+module.exports = GadgetType;
