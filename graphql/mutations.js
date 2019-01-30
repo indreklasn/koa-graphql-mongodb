@@ -6,7 +6,6 @@ const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     addGadget: {
-
       type: gadgetGraphQLType,
       args: {
         name: { type: GraphQLString }, 
@@ -35,7 +34,7 @@ const Mutation = new GraphQLObjectType({
         price: { type: GraphQLString }
       },
       resolve(parent, args) {
-        Gadget.findById(args.id)
+        return Gadget.findById(args.id)
           .then(gadget => {
             gadget.name = args.name
             gadget.release_date = args.release_date,
@@ -45,10 +44,19 @@ const Mutation = new GraphQLObjectType({
             return gadget.save()
 
           })
-          .then(updatedGadget => {
-            console.log(updatedGadget)
-            return updatedGadget
-          })
+          .then(updatedGadget => updatedGadget)
+          .catch(err => console.log(err))
+      }
+    },
+    removeGadget: {
+      type: gadgetGraphQLType,
+      args: { 
+        id: { type: GraphQLString }
+      },
+      resolve(parent, args) {
+        return Gadget.findOneAndDelete(args.id).exec()
+          .then(gadget => gadget.remove())
+          .then(deletedGadget => deletedGadget)
           .catch(err => console.log(err))
       }
     }
