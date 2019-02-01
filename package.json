@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "pm2-runtime start ecosystem.config.js",
+    "start": "pm2-runtime start ecosystem.config.js"
   },
   "keywords": [],
   "author": "",
