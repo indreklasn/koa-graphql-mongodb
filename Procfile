@@ -1,1 +1,1 @@
-web: yarn prod
+node: yarn prod
