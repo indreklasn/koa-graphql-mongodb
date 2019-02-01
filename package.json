@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "pm2 start server.js"
+    "start": "pm2 start server.js",
+    "prod": "pm2-runtime start ecosystem.config.js --env production",
   },
   "keywords": [],
   "author": "",
