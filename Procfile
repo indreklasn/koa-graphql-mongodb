@@ -1,1 +1,1 @@
-node: yarn prod
+node: yarn run start
