@@ -2,6 +2,8 @@ const Koa = require('koa');
 
 const mount = require('koa-mount');
 const graphqlHTTP = require('koa-graphql');
+const cors = require('@koa/cors');
+
 require('dotenv').config()
 
 
@@ -14,6 +16,8 @@ initDB();
 const app = new Koa();
 
 app.listen(process.env.PORT || 9000);
+
+app.use(cors());
 
 app.use(mount('/graphql', graphqlHTTP({
   schema: schema,
