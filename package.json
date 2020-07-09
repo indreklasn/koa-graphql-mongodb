@@ -14,6 +14,6 @@
     "koa": "^2.6.2",
     "koa-graphql": "^0.8.0",
     "koa-mount": "^4.0.0",
-    "mongoose": "^5.4.7"
+    "mongoose": "^5.7.5"
   }
 }
